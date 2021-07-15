@@ -26,7 +26,8 @@
  }
  
 > **<h3>4. app模块gradle.properties里面添加支持androidx库p配置<h3>**
-
+ 
+ android.useAndroidX=true
  android.enableJetifier=true
 
 > **<h3>5. app模块下AndroidManifest.xml里面添加商户号、网关号和signkey(格式: 商户号##网关号##signkey)<h3>**
@@ -56,6 +57,5 @@
 | 方法功能	             |        PayInfoBean(对象赋值传入参数                                     |
 | 方法参数	             |        如payInfoBean.setFirstName("CL");等                           |
 | 返回值	               |         PayResult payResult = new PayResult((String) msg.obj)       |
-
 
 ----------------------------------------end--------------------------------------
