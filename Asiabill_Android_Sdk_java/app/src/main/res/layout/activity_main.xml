@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    android:fitsSystemWindows="true">
+
+    <!--第一部分：伸缩工具栏-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_dark"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title=""
+            app:titleEnabled="false">
+
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="220dp"-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:background="@drawable/ts_10_13264a"-->
+<!--                android:scaleType="fitXY" />-->
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@android:color/holo_blue_dark"
+                android:minHeight="46dp"
+                app:layout_collapseMode="pin"
+                app:title="">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/mian_please_input_account"
+                    android:textColor="@android:color/white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/detailIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:src="@android:drawable/ic_menu_info_details"
+                    android:layout_marginRight="@dimen/size_10dp"
+                     />
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/place_holder_layout"
+                android:background="@drawable/googlepay_payment_bg_r8_shadow1"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/size_10dp"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/merno_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="@dimen/size_20dp"
+                    android:background="@drawable/googlepay_payment_bg_select_r8"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:layout_marginLeft="@dimen/size_30dp"
+                    android:layout_marginRight="@dimen/size_30dp"
+                    android:hint="@string/asiabill_experience_payment_merno"
+                    android:visibility="gone"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="4dp"
+                    android:textColorHint="#737373"
+                    android:textSize="13sp"
+                    app:counterEnabled="true"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/googlepay_payment_floattextcolor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/merno_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:textColor="#333333"
+                        android:layout_gravity="center_vertical"
+                        android:maxLength="5"
+                        android:text="12262"
+                        android:inputType="number"
+                        android:textColorHint="#737373"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/mainEnvironment_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="@dimen/size_20dp"
+                    android:background="@drawable/googlepay_payment_bg_select_r8"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:layout_marginLeft="@dimen/size_30dp"
+                    android:layout_marginRight="@dimen/size_30dp"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="4dp"
+                    android:textColorHint="#737373"
+                    android:textSize="13sp"
+                    app:counterEnabled="true"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/googlepay_payment_floattextcolor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mainEnvironment_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:textColor="#333333"
+                        android:layout_gravity="center_vertical"
+                        android:maxLength="1"
+                        android:hint="默认测试环境0，切换线上环境请输入2"
+                        android:inputType="number"
+                        android:textColorHint="#737373"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/gatway_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/googlepay_payment_bg_select_r8"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:layout_marginLeft="@dimen/size_30dp"
+                    android:layout_marginRight="@dimen/size_30dp"
+                    android:hint="@string/asiabill_experience_payment_gatewayno"
+                    android:paddingRight="12dp"
+                    android:visibility="gone"
+                    android:paddingBottom="4dp"
+                    android:textColorHint="#737373"
+                    android:textSize="13sp"
+                    app:counterEnabled="true"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/googlepay_payment_floattextcolor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/gateway_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:textColor="#333333"
+                        android:layout_gravity="center_vertical"
+                        android:maxLength="8"
+                        android:text="12262001"
+                        android:inputType="number"
+                        android:textColorHint="#737373"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/currency_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/googlepay_payment_bg_select_r8"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="4dp"
+                    android:layout_marginLeft="@dimen/size_30dp"
+                    android:layout_marginRight="@dimen/size_30dp"
+                    android:hint="@string/asiabill_experience_payment_order_currency"
+                    android:paddingRight="12dp"
+                    android:paddingBottom="4dp"
+                    android:visibility="gone"
+                    android:textColorHint="#737373"
+                    android:textSize="13sp"
+                    app:counterEnabled="true"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/googlepay_payment_floattextcolor">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/currency_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:textColor="#333333"
+                        android:layout_gravity="center_vertical"
+                        android:inputType="text"
+                        android:text="USD"
+                        android:textColorHint="#737373"
+                        android:textSize="13sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/place_holder_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginBottom="@dimen/size_20dp"
+                    android:layout_marginRight="@dimen/size_60dp"
+                    android:layout_marginLeft="@dimen/size_60dp"
+                    android:background="@drawable/googlepay_payment_bg_r8_shadow1_black"
+                    android:text="@string/asiabill_experience_payment_localsetting"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <include
+                android:id="@+id/good_detail_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_10dp"
+                layout="@layout/main_list_item_layout"/>
+
+            <include
+                android:id="@+id/good_detail_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_10dp"
+                layout="@layout/main_list_item__two_layout"/>
+            <include
+                android:id="@+id/good_detail_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/size_10dp"
+                layout="@layout/main_list_item__three_layout"/>
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

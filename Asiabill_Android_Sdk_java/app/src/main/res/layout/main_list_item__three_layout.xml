@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="@dimen/size_12dp"
+    android:layout_marginRight="@dimen/size_12dp"
+    android:layout_marginTop="@dimen/size_12dp"
+    app:cardCornerRadius="@dimen/size_8dp"
+    app:cardBackgroundColor="@color/white"
+    android:gravity="center_vertical">
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:padding="@dimen/size_10dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/size_60dp"
+            android:layout_height="@dimen/size_60dp"
+            android:src="@drawable/ts_10_23228a"
+           />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="@dimen/size_3dp"
+            android:layout_marginLeft="@dimen/size_12dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_14dp"
+            android:text="(Env =2，商户自定义选添加新卡支付)"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="@dimen/size_12dp"
+            android:layout_marginTop="@dimen/size_7dp"
+            android:textSize="@dimen/size_15dp"
+            android:textColor="@color/black_alpha80"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:text="0.1"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/image"
+            android:textColor="@color/black_alpha80"
+            android:layout_marginTop="@dimen/size_7dp"
+            android:textSize="@dimen/size_14dp"
+            android:layout_height="wrap_content"
+            android:text="Sometimes even the subtlest of actions can make a big difference. This tee highlights all of the icons &amp;amp; features available in your Gmail inbox!&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;60% cotton, 40% polyester blend.&lt;/li&gt;&lt;li&gt;Available in charcoal heather with the inbox icons screenprinted at front chest and inbox tag sewn onto left sleeve.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;"/>
+
+        <Button
+            android:id="@+id/place_detail_btn"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/description"
+            android:layout_height="46dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="@dimen/size_20dp"
+            android:layout_marginRight="@dimen/size_60dp"
+            android:layout_marginLeft="@dimen/size_60dp"
+            android:background="@drawable/googlepay_payment_bg_r8_shadow1_black"
+            android:text="GO TO BUY"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
