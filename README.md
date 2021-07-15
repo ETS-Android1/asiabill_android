@@ -23,7 +23,25 @@
     implementation "com.asiabill.payment:android_payment:2.0.0"//具体版本号根据你的需求来确定
  }
 
-> **<h3>4. Android sdk调用方法介绍<h3>**
+> **<h3>4. app模块下添加商户号、网关号和signkey(格式: 商户号##网关号##signkey)<h3>**
+ 
+ paymentsEnvironment: 0 测试环境  2 线上生产环境（默认）
+ payInfoBean.setPaymentsEnvironment(paymentsEnvironment);
+ 
+商户正式网关号示例（不用设置默认为线上环境， name="asiabillsdk_key"）：
+ 
+        <meta-data
+            android:name="asiabillsdk_key"
+            android:value="12117##12117001##12345678" />
+
+ 商户测试网关号（payInfoBean.setPaymentsEnvironment("0")， name="asiabillsdk_test_key"）：
+ 
+        <meta-data
+            android:name="asiabillsdk_test_key"
+            android:value="12167##12167001##12345678" />
+ 
+ 
+> **<h3>5. Android sdk调用方法介绍<h3>**
  
 | 方法类型 | 示例| 
 | ------ | ------ |
