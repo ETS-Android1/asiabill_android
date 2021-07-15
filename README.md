@@ -25,7 +25,7 @@
     implementation "com.asiabill.payment:android_payment:2.0.0"//具体版本号根据你的需求来确定
  }
  
-> **<h3>4. app模块gradle.properties里面添加支持androidx库p配置<h3>**
+> **<h3>4. app模块gradle.properties里面添加支持androidx库配置<h3>**
  
  android.useAndroidX=true
  android.enableJetifier=true
@@ -54,8 +54,8 @@
 | 方法类型 | 示例| 
 | ------ | ------ |
 | 方法原型	             |    PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
-| 方法功能	             |        PayInfoBean(对象赋值传入参数                                     |
-| 方法参数	             |        如payInfoBean.setFirstName("CL");等                           |
+| 方法功能	             |        提供给商户订单支付功能                                   |
+| 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）             |
 | 返回值	               |         PayResult payResult = new PayResult((String) msg.obj)       |
 
 ----------------------------------------end--------------------------------------
