@@ -59,4 +59,3 @@
 | 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）             |
 | 返回值	               |         PayResult payResult = new PayResult((String) msg.obj)       |
 
-----------------------------------------end--------------------------------------
