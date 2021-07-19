@@ -11,25 +11,30 @@
      public class AsiabillApplication extends BaseApplication {}
  
 > **<h3> 2. 项目build.gradle里面添加配置<h3>**
- 
+
+ ```
  repositories {
     jcenter()
     maven{
         url "https://raw.githubusercontent.com/Asiabill/asiabill_android/main"
      }
   }
-
+```
+ 
 > **<h3>3. app模块build.gradle里面添加asiabill sdk库<h3>**
  
+ ```
  dependencies {
     implementation "com.asiabill.payment:android_payment:2.0.0"//具体版本号根据你的需求来确定
  }
+ ```
  
 > **<h3>4. app模块gradle.properties里面添加支持androidx库配置<h3>**
  
+ ```
  android.useAndroidX=true
- 
  android.enableJetifier=true
+ ```
 
 > **<h3>5. app模块下AndroidManifest.xml里面添加商户号、网关号和signkey(格式: 商户号##网关号##signkey)<h3>**
  
