@@ -141,7 +141,7 @@
                         android:textColor="#333333"
                         android:layout_gravity="center_vertical"
                         android:maxLength="1"
-                        android:hint="默认测试环境0，切换线上环境请输入2"
+                        android:hint="demo设置测试环境0，切换线上环境请输2"
                         android:inputType="number"
                         android:textColorHint="#737373"
                         android:textSize="13sp" />
