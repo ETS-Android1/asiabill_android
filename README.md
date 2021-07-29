@@ -63,4 +63,69 @@
 | 方法功能	             |        提供给商户订单支付功能                                   |
 | 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）             |
 | 返回值	               |         PayResult payResult = new PayResult((String) msg.obj)       |
+ 
+ 
+**<h2>Asiabill English version of the Android SDK interworking procedure</h2>**
+ 
+ > **<h3>1. The application needs to implement the abstract BaseApplication in order to initialize the SDK<h3>**
+ 
+     public class AsiabillApplication extends BaseApplication {}
+ 
+> **<h3> 2. Add configuration in project build.gradle<h3>**
 
+ ```
+ repositories {
+    jcenter()
+    maven{
+        url "https://raw.githubusercontent.com/Asiabill/asiabill_android/main"
+     }
+  }
+```
+ 
+> **<h3>3. Add the asiabillsdk library to the app’s main module build.gradle<h3>**
+ 
+ ```
+ dependencies {
+    implementation "com.asiabill.payment:android_payment:2.0.0"//The specific version number will be determined according to your needs
+ }
+ ```
+ 
+> **<h3>4. Add support for androidx library configuration in the app's main module gradle.properties<h3>**
+ 
+ ```
+ android.useAndroidX=true
+ android.enableJetifier=true
+ ```
+
+> **<h3>5. Add the merchant number, gateway number and signkey to the AndroidManifest.xml file under the app's main module(Format: Merchant Number##Gateway Number##signkey)<h3>**
+  ```
+ paymentsEnvironment:    0-test environment
+                          2-online production environment (default)
+ 
+ payInfoBean.setPaymentsEnvironment(paymentsEnvironment);
+  ```
+ 
+ An example of a merchant’s official gateway number (unnecessary to set the default online environment, name=“asiabillsdk_key”) :
+ 
+        <meta-data
+            android:name="asiabillsdk_key"
+            android:value="12117##12117001##12345678" />
+
+ Business Test Gateway Number
+(payInfoBean.setPaymentsEnvironment("0"),name="asiabillsdk_test_key")：
+ 
+        <meta-data
+            android:name="asiabillsdk_test_key"
+            android:value="12167##12167001##12345678" />
+ 
+ 
+> **<h3>6. This section describes how to call the Android SDK<h3>**
+ 
+| Interface Name | Interface Description| 
+| ------ | ------ |
+| Method Prototype           |    PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
+| Method Function            |        Provides merchant order payment function                                 |
+| Method Parameter           |        PayInfoBean(object assignment passes in the parameter payInfoBean.setFirstName(“CL”), etc.)             |
+| Return Value               |         PayResult payResult = new PayResult((String) msg.obj)       |
+ 
+ 
