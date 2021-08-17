@@ -206,7 +206,7 @@ public class MainActivity extends BaseActivity {
         //设置用户lastName
         payInfoBean.setLastName("BRW1");
         //设置用户email
-        payInfoBean.setEmail("532539937@qq.com");
+        payInfoBean.setEmail("string0524@gmail.com");
         //设置用户phone
         payInfoBean.setPhone("+1 650-555-5555");
         //设置用户国家
