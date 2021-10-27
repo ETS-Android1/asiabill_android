@@ -25,7 +25,7 @@
  
  ```
  dependencies {
-    implementation "com.asiabill.payment:android_payment:2.0.0"//具体版本号根据你的需求来确定
+    implementation "com.asiabill.payment:android_payment:2.0.1"//具体版本号根据你的需求来确定
  }
  ```
  
@@ -59,10 +59,10 @@
  
 | 方法类型 | 示例| 
 | ------ | ------ |
-| 方法原型	             |    PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
-| 方法功能	             |        提供给商户订单支付功能                                   |
-| 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）             |
-| 返回值	               |         PayResult payResult = new PayResult((String) msg.obj)       |
+| 方法原型	             |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)       |
+| 方法功能	             |        提供给商户订单支付功能                                                  |
+| 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）       |
+| 返回值	               |        PayResult payResult = new PayResult((String) msg.obj) (详情请看7)     |
  
  
 **<h2>Asiabill English version of the Android SDK interworking procedure</h2>**
@@ -123,9 +123,19 @@
  
 | Interface Name | Interface Description| 
 | ------ | ------ |
-| Method Prototype           |    PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
+| Method Prototype           |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
 | Method Function            |        Provides merchant order payment function                                 |
 | Method Parameter           |        PayInfoBean(object assignment passes in the parameter payInfoBean.setFirstName(“CL”), etc.)             |
-| Return Value               |         PayResult payResult = new PayResult((String) msg.obj)       |
+| Return Value               |        PayResult payResult = new PayResult((String) msg.obj)    （see 7 for details）   |
+ 
+ 
+ > **<h3>7 payResult.code (sdk返回code码关系表) <h3>**
+  
+| payResult.code（返回码） | payment result（订单结果） | 
+| ------ | ------ |
+| 9900            |    Successful purchase  （支付成功）        |
+| 7700            |    ProFailure purchase  （支付失败）        |
+| 6600            |    Order pending        （交易待处理）      |
+| 5500            |    Order canceled       （支付取消）        |
  
  
