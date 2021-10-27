@@ -100,7 +100,7 @@
  
  ```
  dependencies {
-    implementation "com.asiabill.payment:android_payment:2.0.0"//The specific version number will be determined according to your needs
+    implementation "com.asiabill.payment:android_payment:2.0.1"//The specific version number will be determined according to your needs
  }
  ```
  
