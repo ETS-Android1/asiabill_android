@@ -21,7 +21,14 @@
   }
 ```
  
-> **<h3>3. app模块build.gradle里面添加asiabill sdk库<h3>**
+> **<h3>3. app模块build.gradle里面添加viewbinding支持和 asiabill sdk库<h3>**
+ 
+  
+ ```
+ buildFeatures{
+         viewBinding = true
+    }
+ ```
  
  ```
  dependencies {
@@ -82,7 +89,14 @@
   }
 ```
  
-> **<h3>3. Add the asiabillsdk library to the app’s main module build.gradle<h3>**
+> **<h3>3. Add viewbinding and the asiabillsdk library to the app’s main module build.gradle<h3>**
+ 
+  
+ ```
+ buildFeatures{
+         viewBinding = true
+    }
+ ```
  
  ```
  dependencies {
