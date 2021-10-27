@@ -25,16 +25,21 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.asiabill.testapp.manager.PayTask;
 import com.asiabill.testapp.model.GoodsDetail;
 import com.asiabill.testapp.model.PayInfoBean;
 import com.asiabill.testapp.model.PaymentUiData;
+import com.asiabill.testapp.model.WebPayRequestEntity;
+import com.asiabill.testapp.model.XmlPayResultResponse;
+import com.asiabill.testapp.util.Pay3DResponseXmlUtil;
+import com.asiabill.testapp.util.SignUtil;
+import com.asiabill.testapp.viewmodel.PayWebViewModel;
 import com.example.asiabill_android_sdk_java.R;
 import com.example.asiabill_android_sdk_java.databinding.ActivityMainBinding;
 import com.example.asiabill_android_sdk_java.model.PayResult;
 import com.module.common.base.BaseActivity;
-
 import org.json.JSONArray;
 
 import java.util.ArrayList;
@@ -69,6 +74,9 @@ public class MainActivity extends BaseActivity {
                 } else if (TextUtils.equals(code, "6600")){
                     Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_pending,
                             Toast.LENGTH_SHORT).show();
+                } else if (TextUtils.equals(code, "5500")) {
+                    Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_canceled,
+                            Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -81,6 +89,8 @@ public class MainActivity extends BaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initializeUi();
+        // 某笔订单支付结果查询接口调用代码示例（query Result of the payment）
+        //queryResult();
     }
 
 
@@ -339,5 +349,67 @@ public class MainActivity extends BaseActivity {
         }else {
             layoutBinding.placeHolderLayout.setVisibility(View.VISIBLE);
         }
+    }
+
+
+//---------------------------------------------------------------------------
+    /**
+     * 某笔订单支付结果查询接口调用代码示例
+     */
+
+    private PayWebViewModel payWebViewModel;
+
+    private void queryResult(){
+        payWebViewModel = new ViewModelProvider(this).get(PayWebViewModel.class);
+        getNetWorkData();
+        //发起某笔订单查询
+        sendQueryResult();
+    }
+    private void sendQueryResult() {
+        //商户号merNo
+        String merNo = "12264";
+        //网关号 gatewayNo
+        String gatewayNo = "12264002";
+        //signKey
+        String signKey = "12345678";
+        //orderNo
+        String queryOrderNo = "1453197636652724225";
+        // query url(当前是测试地址)
+        String queryUrl = "https://sandbox-pay.asiabill.com:8083/";
+        WebPayRequestEntity webPayRequestEntity = new WebPayRequestEntity();
+        webPayRequestEntity.setGatewayNo(gatewayNo);
+        webPayRequestEntity.setMerNo(merNo);
+        webPayRequestEntity.setOrderNo(queryOrderNo);
+        String signInfo = merNo + gatewayNo + signKey;
+        webPayRequestEntity.setSignInfo(SignUtil.sign(signInfo));
+        payWebViewModel.webPaymentTest(webPayRequestEntity, queryUrl);
+    }
+
+    private void getNetWorkData() {
+        payWebViewModel.resultData.observe(this, s -> {
+
+            if (s != null) {
+                XmlPayResultResponse xmlPayResultResponse = Pay3DResponseXmlUtil.getXmlPayResultResponse(s);
+                if (xmlPayResultResponse != null) {
+                    String queryResult = xmlPayResultResponse.getQueryResult();
+                    if (queryResult.equals("0")) { //fail
+                        Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_fail,
+                                Toast.LENGTH_SHORT).show();
+                    } else if (queryResult.equals("1")) { //success
+                        Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_successs,
+                                Toast.LENGTH_SHORT).show();
+                    } else { //pending
+                        Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_pending,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_pending,
+                            Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(MainActivity.this, R.string.asiabill_buy_item_pending,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

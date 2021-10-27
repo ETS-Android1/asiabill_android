@@ -28,7 +28,7 @@
         <!--商户测试网关号//////格式: 商户号##网关号##signkey-->
         <meta-data
             android:name="asiabillsdk_test_key"
-            android:value="12167##12167001##12345678" />
+            android:value="12345##12345004##12345678" />
     </application>
 
 </manifest>
