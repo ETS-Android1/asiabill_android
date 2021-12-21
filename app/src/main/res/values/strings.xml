@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2020 Google Inc.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="asiabill_store_name" translatable="false">Asiabill_Pay2.1</string>
+    <string name="asiabill_app_name" translatable="false">Asiabill2.1</string>
+
+    <!-- Payment notification -->
+    <string name="asiabill_channel_name">Payment Channel</string>
+    <string name="asiabill_send_notification">Send Notification</string>
+    <string name="asiabill_notification_title" translatable="false">Account top up</string>
+    <string name="asiabill_notification_text">Your account balance in close to zero. Top it up now.</string>
+    <string name="asiabill_pay_other_method">Top-up using a different method</string>
+
+    <!-- Checkout -->
+    <string name="asiabill_googlepay_status_unavailable">Unfortunately, Google Pay is not available on this device.</string>
+    <string name="asiabill_payments_show_name">Successfully received payment data for %s!</string>
+    <string name="asiabill_gateway_replace_name_example">"Gateway name set to \"example\" - please modify Constants.java and replace it with your own gateway."</string>
+    <string name="asiabill_checkout_item_description">Description</string>
+    <string name="asiabill_checkout_creat_customer">Creat Customer</string>
+    <string name="asiabill_checkout_creat_customer_success">Creat Customer Successful!</string>
+    <string name="checkout_item_environmentproduct">当前是线上默认环境2，切测试环境请输入0</string>
+    <string name="checkout_item_environmenttest">当前是测试环境0，切线上环境请输入2</string>
+
+
+    <string name="mian_googlepay_account_submit">go Shopping</string>
+    <string name="mian_please_input_merchantid">Please Input MerchantId</string>
+    <string name="mian_please_input_gatewaykey">Please Input Gatewaykey</string>
+    <string name="mian_please_input_account">Go Shoping</string>
+    <string name="mian_account_save">Save</string>
+    <string name="mian_account_go_shoping">Go Shoping</string>
+    <string name="order_history_title">Order History</string>
+
+
+    <string name="googlepay_button_content_description">Google Pay</string>
+    <string name="buy_with_googlepay_button_content_description">Buy with Google Pay</string>
+</resources>

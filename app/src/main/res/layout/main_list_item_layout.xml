@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginLeft="@dimen/size_12dp"
+    android:layout_marginRight="@dimen/size_12dp"
+    android:layout_marginTop="@dimen/size_12dp"
+    app:cardCornerRadius="@dimen/size_8dp"
+    app:cardBackgroundColor="@color/white"
+    android:gravity="center_vertical">
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:padding="@dimen/size_10dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/size_60dp"
+            android:layout_height="@dimen/size_60dp"
+            android:src="@drawable/ts_10_23228a"
+           />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_marginTop="@dimen/size_3dp"
+            android:layout_marginLeft="@dimen/size_12dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_14dp"
+            android:text="(paymentsEnv = 0，SDK托管支付)"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@+id/image"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="@dimen/size_12dp"
+            android:layout_marginTop="@dimen/size_7dp"
+            android:textSize="@dimen/size_15dp"
+            android:textColor="@color/black_alpha80"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:text="0.1"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/image"
+            android:textColor="@color/black_alpha80"
+            android:layout_marginTop="@dimen/size_7dp"
+            android:textSize="@dimen/size_14dp"
+            android:layout_height="wrap_content"
+            android:text="Sometimes even the subtlest of actions can make a big difference. This tee highlights all of the icons &amp;amp; features available in your Gmail inbox!&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Features:&lt;/div&gt;&lt;div&gt;&lt;ul&gt;&lt;li&gt;60% cotton, 40% polyester blend.&lt;/li&gt;&lt;li&gt;Available in charcoal heather with the inbox icons screenprinted at front chest and inbox tag sewn onto left sleeve.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;"/>
+
+        <LinearLayout
+            android:id="@+id/cacopay_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <com.google.android.material.checkbox.MaterialCheckBox
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="1dp"
+                android:clickable="true"
+                android:checked="true"
+                android:background="@color/gray_7f"
+                android:focusable="false"
+                android:scaleX="0.9"
+                android:scaleY="0.9" />
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/payment_icon_cacopay"/>
+            <TextView
+                android:id="@+id/cacopay_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="Kakao Pay (Alipay+&#8482; Partner)" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/gcash_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cacopay_ll"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="horizontal">
+            <com.google.android.material.checkbox.MaterialCheckBox
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/size_10dp"
+                android:layout_marginBottom="1dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:scaleX="0.9"
+                android:scaleY="0.9" />
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/payment_icon_gcash"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gcash(Alipay+ Partner)" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/place_detail_btn"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/gcash_ll"
+            android:layout_height="46dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="@dimen/size_20dp"
+            android:layout_marginRight="@dimen/size_60dp"
+            android:layout_marginLeft="@dimen/size_60dp"
+            android:background="@drawable/googlepay_payment_bg_r8_shadow1_black"
+            android:text="GO TO BUY"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:visibility="visible" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
