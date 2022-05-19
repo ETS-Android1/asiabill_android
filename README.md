@@ -67,8 +67,11 @@
 > 对接商户准备工作（商户调用sdk准备工作，可参照demo）
 
 1.令牌SESSION_TOKEN（必须）：调用Asiabill sdk接口需要一个令牌SESSION_TOKEN，Asiabill接口调用需要SESSION_TOKEN鉴权（一个SESSION_TOKEN只能用于一笔交易，交易后SESSION_TOKEN就会失效，而且有时效性，无效时需要重新请求）
+   APP端调用 [/sessionToken](https://asiabill.gitbook.io/api-explorer/api-reference/jiao-yi/sessiontoken) 接口创建本次交易的会话即 sessionToken
 
 2.顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客多次支付。 
+ 
+3.相关SDK方法调用
 
 | 方法类型 | 示例| 
 | ------ | ------ |
