@@ -70,7 +70,6 @@
 
 2.顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客多次支付。 
  
-3.相关方法调用
 | 方法类型 | 示例| 
 | ------ | ------ |
 | 方法原型	             |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)       |
