@@ -158,7 +158,6 @@
  
 2. CUSTOMERID (optional) : Asiabill will maintain a customer management system to support the function of saving the card when the client makes payment, so that customers can make multiple payments. 
  
->3. The related method call
 | Interface Name | Interface Description| 
 | ------ | ------ |
 | Method Prototype           |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
