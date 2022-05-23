@@ -66,20 +66,42 @@
 
 > 对接商户准备工作（商户调用sdk准备工作，可参照demo）
 
-
- **<h4>1. 创建sessionToken<h4>**
+   **<h4>(1)创建sessionToken<h4>**
  
- 调用Asiabill sdk接口需要一个令牌SESSION_TOKEN，Asiabill接口调用需要SESSION_TOKEN鉴权，一个SESSION_TOKEN只能用于一笔交易，
- 交易后SESSION_TOKEN就会失效，而且有时效性，无效时需要重新请求.
-
-2.顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客多次支付。 
+   商家通过/sessionToken接口创建sessionToken
  
-| 方法类型 | 示例| 
-| ------ | ------ |
-| 方法原型	             |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)       |
-| 方法功能	             |        提供给商户订单支付功能                                                  |
-| 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）       |
-| 返回值	               |        PayResult payResult = new PayResult((String) msg.obj) (详情请看7)      |
+   > 调用Asiabill sdk接口需要一个令牌SESSION_TOKEN，Asiabill接口调用需要SESSION_TOKEN鉴权，一个SESSION_TOKEN只能用于一笔交易，
+   > 交易后SESSION_TOKEN就会失效，而且有时效性，无效时需要重新请求.
+
+   **<h4>(2)搜集支付信息<h4>**
+     
+   > 商户搜集相关支付信息，构建PayInfoBean，通过调用SDK里payTask.pay(PayInfoBean)方法传递支付信息.
+     
+   **<h4>(3)展示付款区域<h4>**
+ 
+      商户发起支付后，会进入sdk里的付款界面，在此搜集卡信息发起支付请求.
+ 
+      ![裁剪02](https://user-images.githubusercontent.com/68328492/169780288-85ff95c9-3c11-42b7-a3a2-56c3cea13e29.jpg)
+
+      
+
+  
+      顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客多次支付.
+ 
+      如果传递了CUSTOMERID字段，则付款区域会展示'Save payment information'选项，商家通过/customers接口创建customerId.
+ 
+      
+
+ 
+ 
+   **<h4>(4)相关sdk方法<h4>**
+ 
+   | 方法类型 | 示例| 
+   | ------ | ------ |
+   | 方法原型	             |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)       |
+   | 方法功能	             |        提供给商户订单支付功能                                                  |
+   | 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）       |
+   | 返回值	               |        PayResult payResult = new PayResult((String) msg.obj) (详情请看7)      |
 
  
  > **<h3>7 payResult.code (sdk返回code码关系表) <h3>**
