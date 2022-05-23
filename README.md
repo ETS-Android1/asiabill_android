@@ -80,11 +80,13 @@
    **<h4>(3)展示付款区域<h4>**
  
    商户发起支付后，会进入sdk里的付款界面，在此搜集卡信息发起支付请求.
+ 
    ![no_card_save](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/no_card_save.jpg)
-   
  
    如果传递了CUSTOMERID字段，则付款区域会展示'Save payment information'选项,商家通过/customers接口创建customerId.
+ 
    ![save_card_in_futere](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/save_card_in_futere.jpg)
+ 
    > 顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客未来支付.
  
    **<h4>(4)相关sdk方法<h4>**
