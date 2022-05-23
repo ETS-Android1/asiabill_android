@@ -69,7 +69,8 @@
 
  **<h4>1. 创建sessionToken<h4>**
  
-     > 调用Asiabill sdk接口需要一个令牌SESSION_TOKEN，Asiabill接口调用需要SESSION_TOKEN鉴权（一个SESSION_TOKEN只能用于一笔交易，交易后SESSION_TOKEN就会失效，而且有时效性，无效时需要重新请求）
+     调用Asiabill sdk接口需要一个令牌SESSION_TOKEN，Asiabill接口调用需要SESSION_TOKEN鉴权（一个SESSION_TOKEN只能用于一笔交易，
+ 交易后SESSION_TOKEN就会失效，而且有时效性，无效时需要重新请求）
 
 2.顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客多次支付。 
  
@@ -78,7 +79,7 @@
 | 方法原型	             |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)       |
 | 方法功能	             |        提供给商户订单支付功能                                                  |
 | 方法参数	             |        PayInfoBean(对象赋值传入参数,如payInfoBean.setFirstName("CL")等）       |
-| 返回值	                |        PayResult payResult = new PayResult((String) msg.obj) (详情请看7)      |
+| 返回值	               |        PayResult payResult = new PayResult((String) msg.obj) (详情请看7)      |
 
  
  > **<h3>7 payResult.code (sdk返回code码关系表) <h3>**
