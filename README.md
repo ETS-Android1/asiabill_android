@@ -86,9 +86,6 @@
    如果传递了CUSTOMERID字段，则付款区域会展示'Save payment information'选项,商家通过/customers接口创建customerId.
    ![save_card_in_futere](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/save_card_in_futere.jpg)
    > 顾客唯一标识CUSTOMERID（非必须）：Asiabill后台会维护一套顾客管理系统支持客户端付款时保存卡功能，方便顾客未来支付.
-  
- 
-      
  
    **<h4>(4)相关sdk方法<h4>**
  
@@ -174,27 +171,49 @@
 > **<h3>6. This section describes how to call the Android SDK<h3>**
 
 > Preparation for merchant connection (preparation for merchant to invoke SDK, please refer to Demo)
+ 
+   **<h4>(1)Create sessionToken<h4>**
+ 
+   Businesses through/create sessionToken sessionToken interface
+ 
+   > Call Asiabill SDK interface requires a token SESSION_TOKEN, Asiabill interface call requires SESSION_TOKEN authentication, a SESSION_TOKEN can 
+   > only be used for a deal, After trading SESSION_TOKEN will fail, and there are timeliness, need to reopen the request is invalid.
 
-1. Token SESSION_TOKEN (must) : The invocation of Asiabill SDK interface requires a token SESSION_TOKEN, and the invocation of Asiabill interface requires SESSION_TOKEN authentication (a SESSION_TOKEN can only be used for one transaction, and the SESSION_TOKEN will be invalid after the transaction, and it has a validity. Rerequest if invalid)
+   **<h4>(2)To collect the payment information<h4>**
+     
+   > Merchant to collect the related payment information and build a PayInfoBean, by calling the SDK in payTask. Pay (PayInfoBean) method is passed the payment information.
+     
+   **<h4>(3)Show the payment area<h4>**
  
-2. CUSTOMERID (optional) : Asiabill will maintain a customer management system to support the function of saving the card when the client makes payment, so that customers can make multiple payments. 
+   Businesses launched after payment, will enter the payment interface in the SDK, card information gathered in this initiate payment requests.
  
-| Interface Name | Interface Description| 
-| ------ | ------ |
-| Method Prototype           |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
-| Method Function            |        Provides merchant order payment function                                 |
-| Method Parameter           |        PayInfoBean(object assignment passes in the parameter payInfoBean.setFirstName(“CL”), etc.)             |
-| Return Value               |        PayResult payResult = new PayResult((String) msg.obj)    （see 7 for details）   |
+   ![no_card_save](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/no_card_save.jpg)
+ 
+   If the delivered the CUSTOMERID field, the area of payment will show 'Save payment information' option, merchants create CUSTOMERID through/customers interface.
+ 
+   ![save_card_in_futere](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/save_card_in_futere.jpg)
+ 
+   > Customers a unique identifier CUSTOMERID (not a must) : Asiabill background will maintain a customer management system to support the client 
+   > payment saved card function, convenience of our customers to pay in the future..
+ 
+   **<h4>(4)Related to the SDK method<h4>**
+ 
+   | Interface Name | Interface Description| 
+   | ------ | ------ |
+   | Method Prototype           |        PayTask payTask new PayTask(activity); payTask.pay(PayInfoBean)     |
+   | Method Function            |        Provides merchant order payment function                                 |
+   | Method Parameter           |        PayInfoBean(object assignment passes in the parameter payInfoBean.setFirstName(“CL”), etc.)             |
+   | Return Value               |        PayResult payResult = new PayResult((String) msg.obj)    （see 7 for details）   |
  
  
- > **<h3>7 payResult.code (sdk返回code码关系表) <h3>**
+ > **<h3>7 payResult.code (The SDK return code code relational tables) <h3>**
   
-| payResult.code（返回码） | payment result（订单结果） | 
+| payResult.code（Return code） | payment result（Order the results） | 
 | ------ | ------ |
-| 9900            |    Successful purchase  （支付成功）        |
-| 7700            |    ProFailure purchase  （支付失败）        |
-| 6600            |    Order pending        （交易待处理）      |
-| 5500            |    Order canceled       （支付取消）        |
+| 9900            |    Successful purchase  （Pay for success）        |
+| 7700            |    ProFailure purchase  （Pay for failure）        |
+| 6600            |    Order pending        （Transaction to be processed）      |
+| 5500            |    Order canceled       （For cancellation）        |
  
  
 
