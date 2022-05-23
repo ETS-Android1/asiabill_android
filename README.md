@@ -83,7 +83,7 @@
  
    ![no_card_save](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/no_card_save.jpg)
  
-   如果传递了CUSTOMERID字段，则付款区域会展示'Save payment information'选项,商家通过/customers接口创建customerId.
+   如果传递了CUSTOMERID字段，则付款区域会展示'Save payment information'选项，商家通过/customers接口创建customerId.
  
    ![save_card_in_futere](https://raw.githubusercontent.com/Asiabill/asiabill_android/master/img/save_card_in_futere.jpg)
  
